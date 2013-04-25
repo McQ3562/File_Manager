@@ -65,7 +65,9 @@ namespace FileManager
 
         private void treeView_FileData_DoubleClick(object sender, EventArgs e)
         {
-            //((TreeNode)sender).Tag;
+	    string FilePath;
+            FilePath = ((TreeNode)sender).(FileItem)Tag.filePath;
+
 
         }
 
