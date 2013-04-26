@@ -48,6 +48,7 @@ namespace FileManager
             TreeNode tmpTreeNode = new TreeNode(displayFileName);
             tmpTreeNode.ImageIndex = 2;
             tmpTreeNode.SelectedImageIndex = 3;
+            tmpTreeNode.Tag = this;
             return tmpTreeNode;
         }
     }

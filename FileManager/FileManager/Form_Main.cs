@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace FileManager
 {
@@ -65,10 +66,16 @@ namespace FileManager
 
         private void treeView_FileData_DoubleClick(object sender, EventArgs e)
         {
-	    string FilePath;
-            FilePath = ((TreeNode)sender).(FileItem)Tag.filePath;
+            TreeNode selectedNode;
+            selectedNode = ((TreeView)sender).SelectedNode;  //.((FileItem)Tag).filePath;
+            object obfFileItem = selectedNode.Tag;
+            FileItem tempFileItem = (FileItem)obfFileItem;
 
-
+            Process OpenFileProcess = new Process();
+            OpenFileProcess.StartInfo.UseShellExecute = false;
+            OpenFileProcess.StartInfo.FileName = tempFileItem.FilePath;
+            OpenFileProcess.StartInfo.CreateNoWindow = false;
+            OpenFileProcess.Start();
         }
 
     }
