@@ -24,9 +24,9 @@ namespace FileManager
         {
             // Load the images in an ImageList.
             ImageList myImageList = new ImageList();
-            myImageList.Images.Add(Image.FromFile("folder.gif"));           //0
+            myImageList.Images.Add(Image.FromFile("folder.png"));           //0
             myImageList.Images.Add(Image.FromFile("folder_selected.gif"));  //1
-            myImageList.Images.Add(Image.FromFile("file.gif"));             //2
+            myImageList.Images.Add(Image.FromFile("file.png"));             //2
             myImageList.Images.Add(Image.FromFile("file_selected.gif"));    //3
             myImageList.Images.Add(Image.FromFile("image.gif"));            //4
             myImageList.Images.Add(Image.FromFile("image_selected.gif"));   //5
