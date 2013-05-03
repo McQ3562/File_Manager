@@ -223,7 +223,7 @@ public class DB_ConnectionString
         private static string UserId = "";
         private static string Password = "";
         private static string ConnectionType = "SQL";
-        private static string ApplicatioName = "Participant_Builder";
+        private static string ApplicatioName = "File_Manager";
         //For Access Databases Only
         private static string FilePath = "";
 
