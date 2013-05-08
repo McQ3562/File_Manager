@@ -85,10 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="file.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="folder.png">
     <Content Include="file.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
