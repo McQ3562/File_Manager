@@ -71,11 +71,12 @@ namespace FileManager
             object obfFileItem = selectedNode.Tag;
             FileItem tempFileItem = (FileItem)obfFileItem;
 
-            Process OpenFileProcess = new Process();
-            OpenFileProcess.StartInfo.UseShellExecute = false;
-            OpenFileProcess.StartInfo.FileName = tempFileItem.FilePath;
-            OpenFileProcess.StartInfo.CreateNoWindow = false;
-            OpenFileProcess.Start();
+            System.Diagnostics.Process.Start(tempFileItem.FilePath);
+            //Process OpenFileProcess = new Process();
+            //OpenFileProcess.StartInfo.UseShellExecute = false;
+            //OpenFileProcess.StartInfo.FileName = tempFileItem.FilePath;
+            //OpenFileProcess.StartInfo.CreateNoWindow = false;
+            //OpenFileProcess.Start();
         }
 
     }
