@@ -101,7 +101,7 @@ namespace FileManager
             foreach (DataItem tmpDataItem in dataItemList)
             {
                 //OldTree.Add(new TreeNode(tmpDataItem.DataLabel));
-                //tmpTreeNode.Nodes.Add(tmpDataItem.BuildTree());
+                tmpTreeNode.Nodes.Add(tmpDataItem.BuildTree());
             }
 
             return tmpTreeNode;

@@ -61,7 +61,7 @@ namespace FileManager
 
             TreeNode tmpTreeNode;
             tmpTreeNode = currentLibrary.BuildTree(); //tmpTreeNode);
-            treeView_FileData.Nodes.Add(tmpTreeNode );
+            treeView_FileData.Nodes.Add(tmpTreeNode);
         }
 
         private void treeView_FileData_DoubleClick(object sender, EventArgs e)
@@ -69,9 +69,16 @@ namespace FileManager
             TreeNode selectedNode;
             selectedNode = ((TreeView)sender).SelectedNode;  //.((FileItem)Tag).filePath;
             object obfFileItem = selectedNode.Tag;
-            FileItem tempFileItem = (FileItem)obfFileItem;
+            System.Type objectType = obfFileItem.GetType();
 
-            System.Diagnostics.Process.Start(tempFileItem.FilePath);
+            if(objectType.Name == "FileItem")
+            {
+                FileItem tempFileItem = (FileItem)obfFileItem;
+
+                System.Diagnostics.Process.Start(tempFileItem.FilePath);
+            }
+            
+            
             //Process OpenFileProcess = new Process();
             //OpenFileProcess.StartInfo.UseShellExecute = false;
             //OpenFileProcess.StartInfo.FileName = tempFileItem.FilePath;
@@ -79,5 +86,10 @@ namespace FileManager
             //OpenFileProcess.Start();
         }
 
+        private void GetProgramPath(string fileName)
+        {
+
+
+        }
     }
 }
