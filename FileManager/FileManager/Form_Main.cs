@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace FileManager
 {
@@ -74,8 +75,14 @@ namespace FileManager
             if(objectType.Name == "FileItem")
             {
                 FileItem tempFileItem = (FileItem)obfFileItem;
-
-                System.Diagnostics.Process.Start(tempFileItem.FilePath);
+                if (File.Exists(tempFileItem.FilePath))
+                {
+                    System.Diagnostics.Process.Start(tempFileItem.FilePath);
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist.  Please update path to file.", "Missing File Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
             }
             
             

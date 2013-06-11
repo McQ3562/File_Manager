@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_Library = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.treeView_FileData = new System.Windows.Forms.TreeView();
+            this.contextMenuStripDataFileTree = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripDataFileTree.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -63,11 +68,32 @@
             // 
             // treeView_FileData
             // 
+            this.treeView_FileData.ContextMenuStrip = this.contextMenuStripDataFileTree;
             this.treeView_FileData.Location = new System.Drawing.Point(12, 65);
             this.treeView_FileData.Name = "treeView_FileData";
             this.treeView_FileData.Size = new System.Drawing.Size(490, 476);
             this.treeView_FileData.TabIndex = 4;
             this.treeView_FileData.DoubleClick += new System.EventHandler(this.treeView_FileData_DoubleClick);
+            // 
+            // contextMenuStripDataFileTree
+            // 
+            this.contextMenuStripDataFileTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editItemToolStripMenuItem,
+            this.deleteItemToolStripMenuItem});
+            this.contextMenuStripDataFileTree.Name = "contextMenuStripDataFileTree";
+            this.contextMenuStripDataFileTree.Size = new System.Drawing.Size(142, 48);
+            // 
+            // editItemToolStripMenuItem
+            // 
+            this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.editItemToolStripMenuItem.Text = "Edit Item";
+            // 
+            // deleteItemToolStripMenuItem
+            // 
+            this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.deleteItemToolStripMenuItem.Text = "Delete Item";
             // 
             // Form_Main
             // 
@@ -81,6 +107,7 @@
             this.Name = "Form_Main";
             this.Text = "File Manager";
             this.Load += new System.EventHandler(this.Form_Main_Load);
+            this.contextMenuStripDataFileTree.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,6 +119,9 @@
         private System.Windows.Forms.ComboBox comboBox_Library;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TreeView treeView_FileData;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripDataFileTree;
+        private System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteItemToolStripMenuItem;
     }
 }
 
