@@ -67,9 +67,9 @@ namespace FileManager
 
         private void treeView_FileData_DoubleClick(object sender, EventArgs e)
         {
-            TreeNode selectedNode;
-            selectedNode = ((TreeView)sender).SelectedNode;  //.((FileItem)Tag).filePath;
-            object obfFileItem = selectedNode.Tag;
+            //TreeNode selectedNode;
+            //selectedNode = ((TreeView)sender).SelectedNode;  //.((FileItem)Tag).filePath;
+            object obfFileItem = GetTreeDataObject(sender); //selectedNode.Tag;
             System.Type objectType = obfFileItem.GetType();
 
             if(objectType.Name == "FileItem")
@@ -84,18 +84,32 @@ namespace FileManager
                     MessageBox.Show("File does not exist.  Please update path to file.", "Missing File Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
-            
-            
-            //Process OpenFileProcess = new Process();
-            //OpenFileProcess.StartInfo.UseShellExecute = false;
-            //OpenFileProcess.StartInfo.FileName = tempFileItem.FilePath;
-            //OpenFileProcess.StartInfo.CreateNoWindow = false;
-            //OpenFileProcess.Start();
+        }
+
+        private Object GetTreeDataObject(object selectedTreeNode)
+        {
+            TreeNode selectedNode;
+            selectedNode = ((TreeView)selectedTreeNode).SelectedNode;
+            object obfFileItem = selectedNode.Tag;
+            System.Type objectType = obfFileItem.GetType();
+
+            return obfFileItem;
         }
 
         private void GetProgramPath(string fileName)
         {
 
+
+        }
+
+        private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            object obFileItem = GetTreeDataObject(sender);
+
+        }
+
+        private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

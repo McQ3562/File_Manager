@@ -81,19 +81,21 @@
             this.editItemToolStripMenuItem,
             this.deleteItemToolStripMenuItem});
             this.contextMenuStripDataFileTree.Name = "contextMenuStripDataFileTree";
-            this.contextMenuStripDataFileTree.Size = new System.Drawing.Size(142, 48);
+            this.contextMenuStripDataFileTree.Size = new System.Drawing.Size(153, 70);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.editItemToolStripMenuItem.Text = "Edit Item";
+            this.editItemToolStripMenuItem.Click += new System.EventHandler(this.editItemToolStripMenuItem_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteItemToolStripMenuItem.Text = "Delete Item";
+            this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
