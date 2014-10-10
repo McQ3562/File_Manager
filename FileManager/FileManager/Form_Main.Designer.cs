@@ -34,8 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.treeView_FileData = new System.Windows.Forms.TreeView();
             this.contextMenuStripDataFileTree = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStripDataFileTree.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             this.comboBox_Library.FormattingEnabled = true;
             this.comboBox_Library.Location = new System.Drawing.Point(12, 25);
             this.comboBox_Library.Name = "comboBox_Library";
-            this.comboBox_Library.Size = new System.Drawing.Size(490, 21);
+            this.comboBox_Library.Size = new System.Drawing.Size(424, 21);
             this.comboBox_Library.TabIndex = 2;
             this.comboBox_Library.SelectedIndexChanged += new System.EventHandler(this.comboBox_Library_SelectedIndexChanged);
             // 
@@ -78,30 +80,49 @@
             // contextMenuStripDataFileTree
             // 
             this.contextMenuStripDataFileTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addItemToolStripMenuItem,
             this.editItemToolStripMenuItem,
             this.deleteItemToolStripMenuItem});
             this.contextMenuStripDataFileTree.Name = "contextMenuStripDataFileTree";
-            this.contextMenuStripDataFileTree.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStripDataFileTree.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStripDataFileTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripDataFileTree_Opening);
+            // 
+            // addItemToolStripMenuItem
+            // 
+            this.addItemToolStripMenuItem.Name = "addItemToolStripMenuItem";
+            this.addItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addItemToolStripMenuItem.Text = "Add Item";
+            this.addItemToolStripMenuItem.Click += new System.EventHandler(this.addItemToolStripMenuItem_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.editItemToolStripMenuItem.Text = "Edit Item";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.editItemToolStripMenuItem_Click);
             // 
             // deleteItemToolStripMenuItem
             // 
             this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
-            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.deleteItemToolStripMenuItem.Text = "Delete Item";
             this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(443, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(59, 39);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Add Library";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 553);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.treeView_FileData);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox_Library);
@@ -124,6 +145,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripDataFileTree;
         private System.Windows.Forms.ToolStripMenuItem editItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addItemToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

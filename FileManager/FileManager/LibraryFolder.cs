@@ -22,7 +22,7 @@ namespace FileManager
         public string FolderName
         {
             get { return folderName; }
-            //set { folderName = value; }
+            set { folderName = value; }
         }
         public List<FileItem> FileItemList
         {
@@ -80,9 +80,16 @@ namespace FileManager
             }
         }
 
+        public void Save(int ParentFolderID, string LibraryName)
+        {
+            DB_Connection conn = new DB_Connection(DB_ConnectionString.GetFileManagerConnectionString());
+            conn.ExecuteQuery("EXEC sp_ADD_LibraryFolder @LibraryName='"+LibraryName+"', @ParentLibraryFolderID="+ParentFolderID+", @FolderName='"+folderName+"'");
+        }
+
         public TreeNode BuildTree()
         {
             TreeNode tmpTreeNode = new TreeNode(folderName);
+            tmpTreeNode.Tag = this;
             tmpTreeNode.ImageIndex = 0;
             tmpTreeNode.SelectedImageIndex = 1;
 

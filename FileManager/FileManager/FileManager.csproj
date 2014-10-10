@@ -65,6 +65,12 @@
     <Compile Include="DataItem.cs" />
     <Compile Include="DB_Connection.cs" />
     <Compile Include="FileItem.cs" />
+    <Compile Include="Form_AddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddItem.Designer.cs">
+      <DependentUpon>Form_AddItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="LibraryManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_AddItem.resx">
+      <DependentUpon>Form_AddItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,22 +109,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="file.gif">
+    <Content Include="Images\file.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="file_selected.gif">
+    <Content Include="Images\file_selected.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="folder.gif">
+    <Content Include="Images\folder.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="folder_selected.gif">
+    <Content Include="Images\folder_selected.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="image.gif">
+    <Content Include="Images\image.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="image_selected.gif">
+    <Content Include="Images\image_selected.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

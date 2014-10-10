@@ -51,11 +51,14 @@ namespace FileManager
         public void Save()
         {
             //Saves Library data to database for specified ID
+            DB_Connection conn = new DB_Connection(DB_ConnectionString.GetFileManagerConnectionString());
+            conn.ExecuteQuery("EXEC sp_ADD_Library @LibraryName='"+libraryName+"'");
         }
 
         public TreeNode BuildTree()
         {
             TreeNode tmpTreeNode = new TreeNode(libraryName);
+            tmpTreeNode.Tag = new LibraryFolder();
             foreach (LibraryFolder tmpLibraryFolder in libraryFolders)
             {
                 tmpTreeNode.Nodes.Add(tmpLibraryFolder.BuildTree());

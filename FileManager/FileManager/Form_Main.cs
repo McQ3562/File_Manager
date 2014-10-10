@@ -16,6 +16,8 @@ namespace FileManager
         Library currentLibrary = new Library();
         LibraryManager libraryManager = new LibraryManager();
 
+        TreeNode currentlySelectedNode;
+
         public Form_Main()
         {
             InitializeComponent();
@@ -25,12 +27,12 @@ namespace FileManager
         {
             // Load the images in an ImageList.
             ImageList myImageList = new ImageList();
-            myImageList.Images.Add(Image.FromFile("folder.gif"));           //0
-            myImageList.Images.Add(Image.FromFile("folder_selected.gif"));  //1
-            myImageList.Images.Add(Image.FromFile("file.gif"));             //2
-            myImageList.Images.Add(Image.FromFile("file_selected.gif"));    //3
-            myImageList.Images.Add(Image.FromFile("image.gif"));            //4
-            myImageList.Images.Add(Image.FromFile("image_selected.gif"));   //5
+            myImageList.Images.Add(Image.FromFile("Images\\folder.gif"));           //0
+            myImageList.Images.Add(Image.FromFile("Images\\folder_selected.gif"));  //1
+            myImageList.Images.Add(Image.FromFile("Images\\file.gif"));             //2
+            myImageList.Images.Add(Image.FromFile("Images\\file_selected.gif"));    //3
+            myImageList.Images.Add(Image.FromFile("Images\\image.gif"));            //4
+            myImageList.Images.Add(Image.FromFile("Images\\image_selected.gif"));   //5
 
             // Assign the ImageList to the TreeView.
             treeView_FileData.ImageList = myImageList;
@@ -84,6 +86,10 @@ namespace FileManager
                     MessageBox.Show("File does not exist.  Please update path to file.", "Missing File Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
             }
+            else if (objectType.Name == "DataItem")
+            {
+
+            }
         }
 
         private Object GetTreeDataObject(object selectedTreeNode)
@@ -96,20 +102,52 @@ namespace FileManager
             return obfFileItem;
         }
 
-        private void GetProgramPath(string fileName)
+        private void contextMenuStripDataFileTree_Opening(object sender, CancelEventArgs e)
         {
 
+            currentlySelectedNode = ((TreeView)(((ContextMenuStrip)(sender)).SourceControl)).SelectedNode;
+            if ((currentlySelectedNode == null) || (currentlySelectedNode.Tag == null))
+            {
+                e.Cancel = true;
+            }
+            else if (currentlySelectedNode.Tag is LibraryFolder)
+            {
+                contextMenuStripDataFileTree.Items["addItemToolStripMenuItem"].Visible = true;
+                contextMenuStripDataFileTree.Items["addItemToolStripMenuItem"].Text = "Add a new Item to \"" + currentlySelectedNode.Text + "\"";
+                contextMenuStripDataFileTree.Items["editItemToolStripMenuItem"].Text = "Edit Folder \"" + currentlySelectedNode.Text + "\"";
+                contextMenuStripDataFileTree.Items["deleteItemToolStripMenuItem"].Text = "Delete Folder \"" + currentlySelectedNode.Text + "\"";
+            }
+            else if (currentlySelectedNode.Tag is DataItem)
+            {
+                contextMenuStripDataFileTree.Items["addItemToolStripMenuItem"].Visible = false;
+                contextMenuStripDataFileTree.Items["editItemToolStripMenuItem"].Text = "Edit Data in \"" + currentlySelectedNode.Text + "\"";
+                contextMenuStripDataFileTree.Items["deleteItemToolStripMenuItem"].Text = "Delete \"" + currentlySelectedNode.Text + "\"";
+            }
+            else if (currentlySelectedNode.Tag is FileItem)
+            {
+                contextMenuStripDataFileTree.Items["addItemToolStripMenuItem"].Visible = false;
+                contextMenuStripDataFileTree.Items["editItemToolStripMenuItem"].Text = "Edit File \"" + currentlySelectedNode.Text + "\"";
+                contextMenuStripDataFileTree.Items["deleteItemToolStripMenuItem"].Text = "Delete File \"" + currentlySelectedNode.Text + "\"";
+            }
+        }
 
+        private void addItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_AddItem addItem = new Form_AddItem();
+            addItem.nodeToEdit = currentlySelectedNode;
+            addItem.ShowDialog();
         }
 
         private void editItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            object obFileItem = GetTreeDataObject(sender);
+            //object obFileItem = GetTreeDataObject(sender);
 
+            
         }
 
         private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
 
         }
     }
